@@ -1,7 +1,7 @@
 name = "SelfStarter"
 uuid = "a0ee9166-3abc-440f-b210-c8ca51d89392"
 authors = ["Markus Amano <markus.a.amano@gmail.com>"]
-version = "0.2.0"
+version = "0.3.0"
 
 [deps]
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"

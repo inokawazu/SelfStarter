@@ -24,8 +24,12 @@ function toselfstart(m::Expr)
             current_pkgs = keys(Pkg.project().dependencies)
             needed_pkgs = $(string.(packages))
             delete_pkgs = setdiff(current_pkgs, needed_pkgs)
-            isempty(delete_pkgs) || Pkg.rm(join(delete_pkgs, " "))
-            Pkg.add(join(needed_pkgs, " "))
+            isempty(delete_pkgs) || foreach(delete_pkgs) do pkg
+                Pkg.rm(pkg)
+            end
+            isempty(needed_pkgs) || foreach(needed_pkgs) do pkg
+                Pkg.add(pkg)
+            end
             Pkg.update()
         end
     end
